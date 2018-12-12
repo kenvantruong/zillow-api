@@ -12,9 +12,12 @@
 $zws_id = 'X1-ZWz187upl80nwr_2ox88'; 
 
 $search = $_GET['address'];
-$citystate = $_GET['citystate'];
-$address = urlencode($search);
-$citystatezip = urlencode($citystate);
+// $citystate = $_GET['citystate'];
+// $address = urlencode($search);
+// $citystatezip = urlencode($citystate);
+
+$address = "14843+Oleander+St";
+$citystatezip = "San+Leandro";
 
 $url = "https://www.zillow.com/webservice/GetSearchResults.htm?zws-id=$zws_id&address=$address&citystatezip=$citystatezip";
 
