@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<!-------URLENCODE-------->
+
 <?php
     $address = "14843+Oleander";
     $citystate = "San+Leandro";
