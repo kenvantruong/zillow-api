@@ -19,7 +19,7 @@ $citystatezip = urlencode($citystate);
 $url = "https://www.zillow.com/webservice/GetSearchResults.htm?zws-id=$zws_id&address=$address&citystatezip=$citystatezip";
 
 // Example
-// http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz187upl80nwr_2ox88&address=111+Ford+Dr&citystatezip=AmericanCanyon%2c+CA
+// http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz187upl80nwr_2ox88&address=14843+Oleander+St&citystatezip=San+Leandro%2c+CA
 
 
 $result = file_get_contents($url);
