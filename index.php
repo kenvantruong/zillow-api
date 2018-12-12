@@ -7,16 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-<!-- PHP  -->
+    <!-- PHP  -->
 <?php
-$zillow_id = 'X1-ZWz1gslkfz42kr_13bwv'; 
+$zws_id = 'X1-ZWz187upl80nwr_2ox88'; 
 
 $search = $_GET['address'];
 $citystate = $_GET['citystate'];
 $address = urlencode($search);
 $citystatezip = urlencode($citystate);
 
-$url = "https://www.zillow.com/webservice/GetSearchResults.htm?zws-id=$zillow_id&address=$address&citystatezip=$citystatezip";
+$url = "https://www.zillow.com/webservice/GetSearchResults.htm?zws-id=$zws_id&address=$address&citystatezip=$citystatezip";
+
+// Example
+// http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz187upl80nwr_2ox88&address=111+Ford+Dr&citystatezip=AmericanCanyon%2c+CA
 
 
 $result = file_get_contents($url);
@@ -24,11 +27,18 @@ $data = simplexml_load_string($result);
 $json = json_encode($data);
 $data = json_decode($json,TRUE);
 
-    
 
-echo $data;  
+$results = $data->response->results->result;
+$chart = $results->links->graphsanddata;
+$value = $results->zestimate->amount;
+
+$html = "
+    <p>$results</p>
+    <p>$chart</p>
+    <p>$value</p>
+";
+
+echo $html;
 ?>
-    
-    <!-- $data->response->results->result[0]->zpid; -->
 </body>
 </html>
